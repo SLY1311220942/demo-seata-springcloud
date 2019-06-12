@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.sly.seata.common.constant.SeataConstant;
+
 import io.seata.core.context.RootContext;
 
 /**
@@ -26,7 +28,7 @@ public class SeataXidFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		String xid = RootContext.getXID();
-		String restXid = request.getHeader("Fescar-Xid");
+		String restXid = request.getHeader(SeataConstant.XID_HEADER);
 		boolean bind = false;
 		if (StringUtils.isBlank(xid) && StringUtils.isNotBlank(restXid)) {
 			RootContext.bind(restXid);

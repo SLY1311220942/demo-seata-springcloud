@@ -1,0 +1,25 @@
+#========================================server config=====================================
+server:
+  port: 9200
+#========================================spring config=====================================
+spring:
+  application:
+    name: seata-springcloud-order
+  devtools:
+    restart:
+      enabled: false
+#========================================MySQL config=====================================
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.14.142.209:3306/fescardubbo?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: 123456
+#========================================mybatis config=====================================
+mybatis:
+  type-aliases-package: com.sly.seata.common.model
+  mapper-locations: classpath:mapper/*.xml
+#========================================eureka config=====================================
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://@localhost:8761/eureka/

@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sly</groupId>
+	<artifactId>seata-springcloud</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.3.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+				<exclusions>
+					<exclusion>
+						<groupId>com.fasterxml.jackson.dataformat</groupId>
+						<artifactId>jackson-dataformat-xml</artifactId>
+					</exclusion>
+				</exclusions>
+				<version>2.1.1.RELEASE</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>../seata-springcloud-account</module>
+		<module>../seata-springcloud-account-api</module>
+		<module>../seata-springcloud-business</module>
+		<module>../seata-springcloud-business-api</module>
+		<module>../seata-springcloud-order</module>
+		<module>../seata-springcloud-order-api</module>
+		<module>../seata-springcloud-storage</module>
+		<module>../seata-springcloud-storage-api</module>
+		<module>../seata-springcloud-common</module>
+		<module>../seata-springcloud-web</module>
+	</modules>
+</project>

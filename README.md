@@ -346,6 +346,8 @@ public class ThreadLocalContextCore implements ContextCore {
 > [为什么要修改](https://github.com/seata/seata/issues/883)
 
 # 使用
+> 首先你需要启动seata-service  
+> [下载地址](https://github.com/seata/seata/releases)  
 > 如果使用熔断记得手动抛出异常，不然seata就会认为你是操作成功了。feign调用我觉得坑爹之处就在这，我其实不是很喜欢feign。但是公司要用也没办法。
 
 ```java

@@ -11,7 +11,7 @@ spring:
 #========================================MySQL config=====================================
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.14.142.209:3306/fescardubbo?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/fescardubbo?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: 123456
 #========================================mybatis config=====================================

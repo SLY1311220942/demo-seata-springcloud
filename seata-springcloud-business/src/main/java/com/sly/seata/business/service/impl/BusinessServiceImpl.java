@@ -83,9 +83,18 @@ public class BusinessServiceImpl implements BusinessService {
 			
 			System.out.println("xid" + RootContext.getXID());
 			
-			storageService.insert(storage);
-			orderService.insert(order);
-			accountService.insert(account);
+			Map<String, Object> insert = storageService.insert(storage);
+			if((int)insert.get("status") != 200) {
+				throw new RuntimeException((String)insert.get("message"));
+			}
+			Map<String, Object> insert2 = orderService.insert(order);
+			if((int)insert2.get("status") != 200) {
+				throw new RuntimeException((String)insert2.get("message"));
+			}
+			Map<String, Object> insert3 = accountService.insert(account);
+			if((int)insert3.get("status") != 200) {
+				throw new RuntimeException((String)insert3.get("message"));
+			}
 
 			Map<String, Object> result = new HashMap<>(16);
 			result.put("status", 200);

@@ -36,8 +36,10 @@ public class StorageServiceImpl implements StorageService {
 	@Override
 	public Map<String, Object> insert(@RequestBody Storage storage) {
 		System.out.println(RootContext.getXID());
-		
+		//int a = 10/0;
 		storageMapper.insert(storage);
+		
+		
 		Map<String, Object> result = new HashMap<>(16);
 		result.put("status", 200);
 		result.put("message", "新增成功！");
